@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Új esemény</title>
+</head>
+<body>
+<link rel="stylesheet" type="text/css" href="table.css">
+<main style="width: fit-content">
+    <h1>Új esemény</h1>
+    <table>
+        <tr>
+            <td>Megnevezés</td>
+            <td>
+                <label for="event_name"></label>
+                <input name="event_name" id="event_name" type="text">
+            </td>
+        </tr>
+        <tr>
+            <td>Időpont</td>
+            <td>
+                <label for="event_start_time"></label>
+                <input name="event_start_time" id="event_start_time" type="datetime-local">
+            </td>
+        </tr>
+        <tr>
+            <td>Helyszín</td>
+            <td>
+                <label for="location"></label>
+                <input name="location" id="location" type="text">
+            </td>
+        </tr>
+        <tr>
+            <td>Cél fotós létszám</td>
+            <td>
+                <label for="photographers_needed"></label>
+                <input name="photographers_needed" id="photographers_needed" type="number" min="1" step="1">
+            </td>
+        </tr>
+        <tr>
+            <td>Megjegyzés</td>
+            <td>
+                <label for="comment"></label>
+                <textarea name="comment" id="comment"></textarea>
+            </td>
+        </tr>
+    </table>
+    <button style="float: right">Mentés</button>
+    <a href="events.html">
+        <button style="float: right">Mégsem</button>
+    </a>
+</main>
+</body>
+</html>

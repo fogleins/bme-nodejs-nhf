@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>Új fotós felvétele</title>
+</head>
+<body>
+<link rel="stylesheet" type="text/css" href="table.css">
+<main style="width: fit-content">
+    <h1>Új fotós felvétele</h1>
+    <table>
+        <tr>
+            <td>Név</td>
+            <td>
+                <label for="name"></label>
+                <input name="name" id="name" type="text">
+            </td>
+        </tr>
+        <tr>
+            <td>Tagsági szint</td>
+            <td>
+                <label>
+                    <input type="radio" name="membership-level" value="Tag">
+                    Tag
+                </label>
+                <label>
+                    <input type="radio" name="membership-level" value="Újonc">
+                    Újonc
+                </label>
+            </td>
+        </tr>
+    </table>
+    <button style="float: right">Mentés</button>
+    <a href="photographers.html">
+        <button style="float: right">Mégsem</button>
+    </a>
+</main>
+</body>
+</html>
