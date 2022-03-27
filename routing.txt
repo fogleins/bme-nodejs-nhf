@@ -1,0 +1,60 @@
+emberek listája
+ember felvétele
+ember szerkesztése
+ember törlése
+[index] események listája
+esemény felvétele
+esemény szerkesztése
+esemény törlése
+eseményre jelentkezés
+
+Routing
+
+GET /                       -events.html
+GET /events                 -events.html
+        getEventsMW
+        renderMW(events.html)
+
+GET /event/new              -edit_or_create_event.html
+        saveEventMW
+        renderMW(edit_or_create_event)
+POST /event/new             -edit_or_create_event.html
+
+GET /event/edit/:eventid    -edit_or_create_event.html
+        getEventMW
+        ((getPhotographersForEventMW))
+        saveEventMW
+        renderMW
+POST /event/edit/:eventid   -edit_or_create_event.html
+
+GET /event/delete/:eventid  -edit_or_create_event.html
+        getEventMW
+        deleteEventMW
+
+GET /event/details/:eventid -event_details.html
+        getEventMW
+        renderMW
+
+GET /photographers          -photographers.html
+        getPhotographersMW
+        renderMW
+
+GET /photographer/new       -edit_or_add_photographer.html
+        savePhotographerMW
+        renderMW
+POST /photographer/new      -edit_or_add_photographer.html
+
+GET /photographer/edit/:id  -edit_or_add_photographer.html
+        getPhotographerMW
+        savePhotographerMW
+        renderMW
+POST /photographer/edit/:id -edit_or_add_photographer.html
+
+GET /photographer/delete/:id-edit_or_add_photographer.html
+        getPhotographerMW
+        deletePhotographerMW
+
+(photographer details)
+
+
+GET JELENTKEZES
