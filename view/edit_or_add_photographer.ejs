@@ -1,0 +1,37 @@
+<%- include('header') %>
+<main style="width: fit-content">
+    <h1>
+        Fotós
+        <% if (typeof photographer === 'undefined') { %> felvétele
+        <% } else { %> szerkesztése <% } %>
+    </h1>
+    <table>
+        <tr>
+            <td>Név</td>
+            <td>
+                <label for="name"></label>
+                <input name="name" id="name" type="text" value="<%= (typeof photographer === 'undefined') ? '' : photographer.name %>">
+            </td>
+        </tr>
+        <tr>
+            <td>Tagsági szint</td>
+            <td>
+                <label>
+                    <input type="radio" name="membership-level" value="Tag"
+                    <% if (typeof photographer !== 'undefined' && photographer.membership_level === "Tag") { %> checked <% } %>>
+                    Tag
+                </label>
+                <label>
+                    <input type="radio" name="membership-level" value="Újonc"
+                    <% if (typeof photographer !== 'undefined' && photographer.membership_level === "Újonc") { %> checked <% } %>>
+                    Újonc
+                </label>
+            </td>
+        </tr>
+    </table>
+    <button style="float: right">Mentés</button>
+    <a href="/photographers">
+        <button style="float: right">Mégsem</button>
+    </a>
+</main>
+<%- include('footer') %>

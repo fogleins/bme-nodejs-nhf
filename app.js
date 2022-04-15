@@ -1,16 +1,17 @@
 // var createError = require('http-errors');
 // var express = require('express');
-// var path = require('path');
+const path = require('path');
 // var cookieParser = require('cookie-parser');
 // var logger = require('morgan');
 //
 // var indexRouter = require('./routes/index');
 // var usersRouter = require('./routes/users');
 //
-// var app = express();
+const express = require('express');
+const app = express();
 //
 // // view engine setup
-// app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'view'));
 // app.set('view engine', 'pug');
 //
 // app.use(logger('dev'));
@@ -40,8 +41,7 @@
 //
 // module.exports = app;
 
-const express = require('express');
-const app = express();
+// const app = express();
 const bodyParser = require('body-parser');
 const session = require('express-session');
 
@@ -58,13 +58,13 @@ app.use(
 );
 
 // Load routing
-require('./route/index')(app);
+require('./routes/index')(app);
 
 app.use((err, req, res, next) => {
     res.end('Problem...');
     console.log(err);
 });
 
-app.listen(3000, function() {
-    console.log('Hello :3000');
+app.listen(3800, function() {
+    console.log('Hello :3800');
 });

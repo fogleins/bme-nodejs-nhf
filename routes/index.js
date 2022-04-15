@@ -17,11 +17,7 @@ const savePhotographerMW = require("../middleware/photographer/savePhotographerM
 module.exports = function (app) {
     const objRepo = {}
 
-    app.use("/",
-        // ez majd átirányít a(z) /events-re
-        getEventsMW(objRepo),
-        renderMW(objRepo, "events")
-    )
+
 
     app.use("/events",
         getEventsMW(objRepo),
@@ -71,4 +67,7 @@ module.exports = function (app) {
         deletePhotographerMW(objRepo)
     )
 
+    app.use("/",
+        renderMW(objRepo, "index")
+    )
 }

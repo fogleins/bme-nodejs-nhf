@@ -1,0 +1,72 @@
+<%- include('header') %>
+<main style="width: fit-content">
+    <h1>Esemény részletei</h1>
+    <a href="/events">Eseménylista</a>
+    <table>
+    <%
+    // TODO: csak a template feltöltésének teszteléséhez, törlésre fog kerülni
+        var photoEvent = {
+            id: 4,
+            name: "Event",
+            startTime: "2022-04-08",
+            endTime: "2022-04-09",
+            location: "BME",
+            photographersNeeded: 4,
+            photographers: [
+                {
+                    name: "John Doe",
+                    membershipLevel: "Tag"
+                }
+            ],
+            comment: "-"
+        }
+    %>
+        <tr>
+            <td>Megnevezés</td>
+            <td>
+                <% photoEvent.name %>
+            </td>
+        </tr>
+        <tr>
+            <td>Időpont</td>
+            <td>
+                <% photoEvent.startTime %>
+            </td>
+        </tr>
+        <tr>
+            <td>Helyszín</td>
+            <td><% photoEvent.location %></td>
+        </tr>
+        <tr>
+            <td>Jelentkezett fotós(ok)</td>
+            <td>
+                <ul>
+                    <% photoEvent.photographers.forEach(function(photographer) { %>
+                        <li>
+                            <% photographer.name %>
+                            (<% photographer.membershipLevel %>)
+                        </li>
+                    <% }); %>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Cél fotós létszám</td>
+            <td>
+                <% photoEvent.photographersNeeded %>
+            </td>
+        </tr>
+        <tr>
+            <td>Megjegyzés</td>
+            <td>
+                <% photoEvent.comment %>
+            </td>
+        </tr>
+    </table>
+    <div id="buttons" style="float: right">
+        <button>Törlés</button>
+        <button>Mentés</button>
+        <button>Jelentkezés</button>
+    </div>
+</main>
+<%- include('footer') %>

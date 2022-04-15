@@ -1,0 +1,57 @@
+<%- include('header') %>
+<main style="width: fit-content">
+    <h1>
+        Esemény
+        <% if (typeof photoEvent === 'undefined') { %> felvétele
+        <% } else { %> szerkesztése
+        <% } %>
+    </h1>
+    <table>
+        <tr>
+            <td>Megnevezés</td>
+            <td>
+                <label for="event_name"></label>
+                <input name="event_name" id="event_name" type="text"
+                       value="<%= (typeof photoEvent === 'undefined') ? '' : photoEvent.name %>">
+            </td>
+        </tr>
+        <tr>
+            <td>Időpont</td>
+            <td>
+                <label for="event_start_time"></label>
+                <input name="event_start_time" id="event_start_time" type="datetime-local"
+                       value="<%= (typeof photoEvent === 'undefined') ? '' : photoEvent.startTime %>">
+            </td>
+        </tr>
+        <tr>
+            <td>Helyszín</td>
+            <td>
+                <label for="location"></label>
+                <input name="location" id="location" type="text"
+                       value="<%= (typeof photoEvent === 'undefined') ? '' : photoEvent.location %>">
+            </td>
+        </tr>
+        <tr>
+            <td>Cél fotós létszám</td>
+            <td>
+                <label for="photographers_needed"></label>
+                <input name="photographers_needed" id="photographers_needed" type="number" min="1" step="1"
+                       value="<%= (typeof photoEvent === 'undefined') ? '1' : photoEvent.photographersNeeded %>">
+            </td>
+        </tr>
+        <tr>
+            <td>Megjegyzés</td>
+            <td>
+                <label for="comment"></label>
+                <textarea name="comment" id="comment">
+                    <%= (typeof photoEvent === 'undefined') ? '' : photoEvent.comment %>
+                </textarea>
+            </td>
+        </tr>
+    </table>
+    <button style="float: right">Mentés</button>
+    <a href="/events">
+        <button style="float: right">Mégsem</button>
+    </a>
+</main>
+<%- include('footer') %>
