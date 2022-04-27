@@ -14,8 +14,14 @@ const getPhotographerMW = require("../middleware/photographer/getPhotographerMW"
 const getPhotographersMW = require("../middleware/photographer/getPhotographersMW")
 const savePhotographerMW = require("../middleware/photographer/savePhotographerMW")
 
-module.exports = function (app) {
-    const objRepo = {}
+const PhotographerModel = require("../model/photographer");
+const EventModel = require("../model/event");
+
+module.exports = function(app) {
+    const objRepo = {
+        PhotographerModel: PhotographerModel,
+        EventModel: EventModel
+    };
 
 
 
