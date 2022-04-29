@@ -1,9 +1,8 @@
-/*
- * Betölti az összes fotóst.
- */
-
 const requireOption = require("../requireOption");
 
+/**
+ * Betölti az összes fotóst.
+ */
 module.exports = function (objectrepository) {
     const PhotographerModel = requireOption(objectrepository, "PhotographerModel");
 

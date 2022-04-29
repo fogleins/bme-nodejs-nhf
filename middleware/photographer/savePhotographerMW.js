@@ -1,9 +1,8 @@
-/*
- * Elment egy fotóst az adatbázisba.
- */
-
 const requireOption = require("../requireOption");
 
+/**
+ * Elment egy fotóst az adatbázisba.
+ */
 module.exports = function (objectrepository) {
     const PhotographerModel = requireOption(objectrepository, "PhotographerModel");
 

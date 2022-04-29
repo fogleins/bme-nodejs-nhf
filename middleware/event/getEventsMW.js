@@ -1,9 +1,8 @@
-/*
- * Betölti az összes eseményt.
- */
-
 const requireOption = require("../requireOption");
 
+/**
+ * Betölti az összes eseményt.
+ */
 module.exports = function (objectrepository) {
     const EventModel = requireOption(objectrepository, "EventModel");
 
