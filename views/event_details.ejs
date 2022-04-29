@@ -34,15 +34,17 @@
             </td>
         </tr>
         <tr>
-            <td><%= event.photographersApplied.length > 1 ? "Jelentkezett fotósok" : "Jelentkezett fotós" %>
-                (<%= photographersApplied.length %>)
+            <td><%= (typeof event.photographersApplied === "undefined") ? "Jelentkezett fotósok"
+                        : (event.photographersApplied.length !== 1 ? "Jelentkezett fotósok" : "Jelentkezett fotós") %>
+                (<%= (typeof photographersApplied === "undefined") ? "0" : photographersApplied.length %>)
             </td>
             <td>
                 <ul>
-                    <% photographersApplied.forEach(function(photographer) { %>
+                    <% (typeof photographersApplied === "undefined") ? "" : photographersApplied.forEach(function(photographer) { %>
                         <li>
                             <%= photographer.name %>
-                            (<%= photographer.membershipLevel %>)
+                            (<%= photographer.membershipLevel %>) <a
+                                    href="/event/<%= event.id %>/rmphotographer/<%= photographer.id %>">Lejelentkezés</a>
                         </li>
                     <% }); %>
                 </ul>
