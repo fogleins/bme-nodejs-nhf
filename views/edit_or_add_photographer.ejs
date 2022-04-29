@@ -3,33 +3,44 @@
     <h1>
         Fotós
         <% if (typeof photographer === 'undefined') { %> felvétele
-        <% } else { %> szerkesztése <% } %>
+        <% } else { %> szerkesztése
+        <% } %>
     </h1>
-    <table>
-        <tr>
-            <td>Név</td>
-            <td>
-                <label for="name"></label>
-                <input name="name" id="name" type="text" value="<%= (typeof photographer === 'undefined') ? '' : photographer.name %>">
-            </td>
-        </tr>
-        <tr>
-            <td>Tagsági szint</td>
-            <td>
-                <label>
-                    <input type="radio" name="membership-level" value="Tag"
-                    <% if (typeof photographer !== 'undefined' && photographer.membership_level === "Tag") { %> checked <% } %>>
-                    Tag
-                </label>
-                <label>
-                    <input type="radio" name="membership-level" value="Újonc"
-                    <% if (typeof photographer !== 'undefined' && photographer.membership_level === "Újonc") { %> checked <% } %>>
-                    Újonc
-                </label>
-            </td>
-        </tr>
-    </table>
-    <button style="float: right">Mentés</button>
+    <form method="POST">
+        <table>
+            <tr>
+                <td>Név</td>
+                <td>
+                    <label for="name"></label>
+                    <input name="name" id="name" type="text" minlength="2" required
+                           value="<%= (typeof photographer === 'undefined') ? '' : photographer.name %>">
+                </td>
+            </tr>
+            <tr>
+                <td>Tagsági szint</td>
+                <td>
+                    <label>
+                        <input type="radio" name="membershipLevel" required value="Tag"
+                        <% if (typeof photographer !== 'undefined' && photographer.membershipLevel === "Tag") { %>
+                               checked
+                                <% } %>
+                        >
+                        Tag
+                    </label>
+                    <label>
+                        <input type="radio" name="membershipLevel" value="Újonc"
+                        <% if (typeof photographer !== 'undefined' && photographer.membershipLevel === "Újonc") { %>
+                               checked
+                                <% } %>
+                        >
+                        Újonc
+                    </label>
+                </td>
+            </tr>
+        </table>
+        <input type="submit" style="float: right" value="Mentés"/>
+
+    </form>
     <a href="/photographers">
         <button style="float: right">Mégsem</button>
     </a>

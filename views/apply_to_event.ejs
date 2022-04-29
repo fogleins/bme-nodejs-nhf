@@ -1,0 +1,23 @@
+<%- include('header') %>
+<div class="row d-flex justify-content-center">
+    <div class="col-md-6">
+        <main style="width: fit-content">
+            <h1>Fotósnak jelentkezés a(z) <%= event.name %> eseményre</h1>
+            <form method="POST">
+                <label for="applicant">Fotós:</label>
+                <select name="applicant" id="applicant">
+                    <% photographers.forEach(function(photographer) { %>
+                        <option value="<%= photographer.id %>"><%= photographer.name %></option>
+                    <% }) %>
+                </select>
+                <button>Jelentkezés</button>
+            </form>
+            <div id="buttons" style="float: right">
+                <a href="/events">
+                    <button>Vissza az eseményekhez</button>
+                </a>
+            </div>
+        </main>
+    </div>
+</div>
+<%- include('footer') %>

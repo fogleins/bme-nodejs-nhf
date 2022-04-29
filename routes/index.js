@@ -7,6 +7,7 @@ const getEventMW = require("../middleware/event/getEventMW")
 const getEventsMW = require("../middleware/event/getEventsMW")
 const getPhotographersForEventMW = require("../middleware/event/getPhotographersForEventMW")
 const saveEventMW = require("../middleware/event/saveEventMW")
+const applyToEventMW = require("../middleware/event/applyToEventMW")
 
 // photographer
 const deletePhotographerMW = require("../middleware/photographer/deletePhotographerMW")
@@ -24,7 +25,6 @@ module.exports = function(app) {
     };
 
 
-
     app.use("/events",
         getEventsMW(objRepo),
         renderMW(objRepo, "events")
@@ -36,7 +36,7 @@ module.exports = function(app) {
     )
 
     app.use("/event/edit/:eventid",
-        getEventsMW(objRepo),
+        getEventMW(objRepo),
         getPhotographersForEventMW(objRepo),
         saveEventMW(objRepo),
         renderMW(objRepo, "edit_or_create_event")
@@ -49,7 +49,16 @@ module.exports = function(app) {
 
     app.get("/event/details/:eventid",
         getEventMW(objRepo),
+        getPhotographersForEventMW(objRepo),
         renderMW(objRepo, "event_details")
+    )
+
+    app.use("/event/apply/:eventid",
+        getEventMW(objRepo),
+        getPhotographersMW(objRepo),
+        applyToEventMW(objRepo),
+        // saveEventMW(objRepo),
+        renderMW(objRepo, "apply_to_event")
     )
 
     app.get("/photographers",

@@ -1,7 +1,7 @@
 const Schema = require("mongoose").Schema
 const db = require("../db")
 
-const PhotographerT = require("./photographer")
+const mongoose = require("mongoose");
 
 const Event = db.model("Event", {
     name: String,
@@ -9,7 +9,10 @@ const Event = db.model("Event", {
     endTime: Date,
     location: String,
     photographersNeeded: Number,
-    photographersApplied: [ { photographer: PhotographerT.schema /* TODO: a .schema kell? */ } ], // idegen kulcsok tömbje a jelentkezett fotósokra
+    photographersApplied: [{
+        type: Schema.Types.ObjectId,
+        ref: "Photographer"
+    }], // idegen kulcsok tömbje a jelentkezett fotósokra
     comment: String
 })
 

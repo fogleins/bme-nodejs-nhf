@@ -5,39 +5,19 @@
     <button>Fotós felvétele</button>
 </a>
 <table>
-    <%
-        // TODO: csak a template feltöltésének teszteléséhez, törlésre fog kerülni
-        const photographers = [
-        {
-            id: 0,
-            name: "John Doe",
-            membershipLevel: "Tag"
-        },
-        {
-            id: 1,
-            name: "Jane Doe",
-            membershipLevel: "Újonc"
-        }
-    ]
-    %>
     <% photographers.forEach(function(photographer) { %>
         <tr>
             <td>
                 <%= photographer.name %>
             </td>
             <td>
-<!--                <label>-->
-<!--                    <input type="radio" name="membership_level_jd2" value="Tag" checked>-->
-<!--                    Tag-->
-<!--                </label>-->
-<!--                <label>-->
-<!--                    <input type="radio" name="membership_level_jd2" value="Újonc">-->
-<!--                    Újonc-->
-<!--                </label>-->
                 <%= photographer.membershipLevel %>
             </td>
             <td>
                 <a href="/photographer/edit/<%= photographer.id %>">Szerkesztés</a>
+            </td>
+            <td>
+                <a href="/photographer/delete/<%= photographer.id %>">Törlés</a>
             </td>
         </tr>
     <% }); %>
