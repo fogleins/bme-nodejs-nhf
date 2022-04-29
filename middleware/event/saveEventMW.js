@@ -24,11 +24,16 @@ module.exports = function (objectrepository) {
         res.locals.event.photographersNeeded = req.body.photographers_needed;
         res.locals.event.comment = req.body.comment;
 
-        res.locals.event.save(error => {
-            if (error) {
-                return next(error);
-            }
-            return res.redirect("/events");
-        });
+        if (res.locals.event.startTime >= res.locals.event.endTime) {
+            console.log("Start time must be before the end time");
+            return next();
+        } else {
+            res.locals.event.save(error => {
+                if (error) {
+                    return next(error);
+                }
+                return res.redirect("/events");
+            });
+        }
     };
 };
