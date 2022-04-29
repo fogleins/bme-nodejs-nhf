@@ -1,41 +1,40 @@
 <%- include('header') %>
-<div class="row d-flex justify-content-center">
-    <div class="col-md-8">
-        <h1 class="h1 text-primary">Események</h1>
-        <a href="/event/new">
-            <button class="btn btn-outline-success">Esemény felvétele</button>
-        </a>
-        <a href="/photographers">
-            <button class="btn btn-outline-primary">Fotósok listája</button>
-        </a>
-        <table class="table">
-            <tr>
-                <th>Megnevezés</th>
-                <th>Esemény kezdete</th>
-                <th>Esemény vége</th>
-                <th>Helyszín</th>
-                <th>Jelentkeztek/cél</th>
-                <th>Megjegyzés</th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-            </tr>
-            <% events.forEach(function(event) { %>
+
+<div class="container mt-3">
+    <div class="row align-items-center">
+        <div class="col">
+            <h1 class="h1 text-primary">Események</h1>
+            <a href="/event/new" class="btn btn-outline-success">Esemény felvétele</a>
+            <a href="/photographers" class="btn btn-outline-primary">Fotósok listája</a>
+            <table class="table table-hover">
                 <tr>
-                    <td><%= event.name %></td>
-                    <td><%= event.startTime.toLocaleString("hu-HU") %></td>
-                    <td><%= event.endTime.toLocaleString("hu-HU") %></td>
-                    <td><%= event.location %></td>
-                    <td><%= event.photographersApplied.length %>/<%= event.photographersNeeded %></td>
-                    <td><%= event.comment %></td>
-                    <td><a href="/event/delete/<%= event.id %>">Törlés</a></td>
-                    <td><a href="/event/edit/<%= event.id %>">Szerkesztés</a></td>
-                    <td><a href="/event/details/<%= event.id %>">Részletek</a></td>
-                    <td><a href="/event/apply/<%= event.id %>">Jelentkezés</a></td>
+                    <th>Megnevezés</th>
+                    <th>Esemény kezdete</th>
+                    <th>Esemény vége</th>
+                    <th>Helyszín</th>
+                    <th>Jelentkeztek/cél</th>
+                    <th>Megjegyzés</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
                 </tr>
-            <% }); %>
-        </table>
+                <% events.forEach(function(event) { %>
+                    <tr>
+                        <td><%= event.name %></td>
+                        <td><%= event.startTime.toLocaleString("hu-HU") %></td>
+                        <td><%= event.endTime.toLocaleString("hu-HU") %></td>
+                        <td><%= event.location %></td>
+                        <td><%= event.photographersApplied.length %>/<%= event.photographersNeeded %></td>
+                        <td><%= event.comment %></td>
+                        <td><a href="/event/delete/<%= event.id %>" class="btn btn-outline-danger">Törlés</a></td>
+                        <td><a href="/event/edit/<%= event.id %>" class="btn btn-outline-primary">Szerkesztés</a></td>
+                        <td><a href="/event/details/<%= event.id %>" class="btn btn-outline-primary">Részletek</a></td>
+                        <td><a href="/event/apply/<%= event.id %>" class="btn btn-outline-success">Jelentkezés</a></td>
+                    </tr>
+                <% }); %>
+            </table>
+        </div>
     </div>
 </div>
 <%- include('footer') %>

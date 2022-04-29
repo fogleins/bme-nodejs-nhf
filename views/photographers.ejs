@@ -1,25 +1,36 @@
 <%- include('header') %>
-<h1>Fotósok</h1>
-<a href="/events">Eseménylista</a><br>
-<a href="/photographer/new">
-    <button>Fotós felvétele</button>
-</a>
-<table>
-    <% photographers.forEach(function(photographer) { %>
-        <tr>
-            <td>
-                <%= photographer.name %>
-            </td>
-            <td>
-                <%= photographer.membershipLevel %>
-            </td>
-            <td>
-                <a href="/photographer/edit/<%= photographer.id %>">Szerkesztés</a>
-            </td>
-            <td>
-                <a href="/photographer/delete/<%= photographer.id %>">Törlés</a>
-            </td>
-        </tr>
-    <% }); %>
-</table>
+
+<div class="container mt-3">
+    <div class="row align-items-center">
+        <div class="col">
+            <h1 class="h1 text-primary">Fotósok</h1>
+            <a href="/photographer/new" class="btn btn-outline-success">Fotós felvétele</a>
+            <a href="/events" class="btn btn-outline-primary">Események listája</a>
+            <table class="table table-hover">
+                <tr>
+                    <th>Név</th>
+                    <th>Tagsági szint</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <% photographers.forEach(function(photographer) { %>
+                    <tr>
+                        <td>
+                            <%= photographer.name %>
+                        </td>
+                        <td>
+                            <%= photographer.membershipLevel %>
+                        </td>
+                        <td>
+                            <a href="/photographer/edit/<%= photographer.id %>" class="btn btn-outline-primary">Szerkesztés</a>
+                        </td>
+                        <td>
+                            <a href="/photographer/delete/<%= photographer.id %>" class="btn btn-outline-danger">Törlés</a>
+                        </td>
+                    </tr>
+                <% }); %>
+            </table>
+        </div>
+    </div>
+</div>
 <%- include('footer') %>

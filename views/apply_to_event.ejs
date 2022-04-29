@@ -1,23 +1,29 @@
 <%- include('header') %>
-<div class="row d-flex justify-content-center">
-    <div class="col-md-6">
-        <main style="width: fit-content">
-            <h1>Fotósnak jelentkezés a(z) <%= event.name %> eseményre</h1>
+
+<main style="width: fit-content" class="container mt-3">
+    <h1 class="h1 text-primary">Fotósnak jelentkezés a(z) <%= event.name %> eseményre</h1>
+    <div class="row justify-content-center">
+        <div class="col-7">
             <form method="POST">
                 <label for="applicant">Fotós:</label>
-                <select name="applicant" id="applicant">
+                <select name="applicant" id="applicant" class="form-select">
                     <% photographers.forEach(function(photographer) { %>
                         <option value="<%= photographer.id %>"><%= photographer.name %></option>
                     <% }) %>
                 </select>
-                <button>Jelentkezés</button>
+
+                <div class="container mt-2">
+                    <div class="row justify-content-end">
+                        <div class="col-3">
+                            <a href="/events" class="btn btn-outline-secondary">Mégsem</a>
+                        </div>
+                        <div class="col-3">
+                            <button class="btn btn-success justify-self-end">Jelentkezés</button>
+                        </div>
+                    </div>
+                </div>
             </form>
-            <div id="buttons" style="float: right">
-                <a href="/events">
-                    <button>Vissza az eseményekhez</button>
-                </a>
-            </div>
-        </main>
+        </div>
     </div>
-</div>
+</main>
 <%- include('footer') %>

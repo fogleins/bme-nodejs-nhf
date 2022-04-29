@@ -1,6 +1,6 @@
 <%- include('header') %>
-<main style="width: fit-content">
-    <h1>
+<main class="container mt-3" style="width: fit-content">
+    <h1 class="h1 text-primary">
         Esemény
         <% if (typeof event === 'undefined') { %> felvétele
         <% } else { %> szerkesztése
@@ -12,7 +12,7 @@
                 <td>Megnevezés</td>
                 <td>
                     <label for="event_name"></label>
-                    <input name="event_name" id="event_name" type="text"
+                    <input name="event_name" id="event_name" type="text" class="form-control"
                            value="<%= (typeof event === 'undefined') ? '' : event.name %>">
                 </td>
             </tr>
@@ -20,7 +20,7 @@
                 <td>Esemény kezdete <%= (typeof event !== "undefined") ? "(GMT" + event.startTime.getTimezoneOffset() / 60 + ")" : "" %></td>
                 <td>
                     <label for="event_start_time"></label>
-                    <input name="event_start_time" id="event_start_time" type="datetime-local"
+                    <input name="event_start_time" id="event_start_time" type="datetime-local" class="form-control"
                            value="<%= (typeof event === 'undefined') ? '' : event.startTime.toISOString().slice(0, 16) %>">
                 </td>
             </tr>
@@ -28,7 +28,7 @@
                 <td>Esemény vége <%= (typeof event !== "undefined") ? "(GMT" + event.endTime.getTimezoneOffset() / 60 + ")" : "" %></td>
                 <td>
                     <label for="event_end_time"></label>
-                    <input name="event_end_time" id="event_end_time" type="datetime-local"
+                    <input name="event_end_time" id="event_end_time" type="datetime-local" class="form-control"
                            value="<%= (typeof event === 'undefined') ? '' : event.endTime.toISOString().slice(0, 16) %>">
                 </td>
             </tr>
@@ -36,7 +36,7 @@
                 <td>Helyszín</td>
                 <td>
                     <label for="location"></label>
-                    <input name="location" id="location" type="text"
+                    <input name="location" id="location" type="text" class="form-control"
                            value="<%= (typeof event === 'undefined') ? '' : event.location %>">
                 </td>
             </tr>
@@ -44,7 +44,7 @@
                 <td>Cél fotós létszám</td>
                 <td>
                     <label for="photographers_needed"></label>
-                    <input name="photographers_needed" id="photographers_needed" type="number" min="1" step="1"
+                    <input name="photographers_needed" id="photographers_needed" type="number" min="1" step="1" class="form-control"
                            value="<%= (typeof event === 'undefined') ? '1' : event.photographersNeeded %>">
                 </td>
             </tr>
@@ -52,15 +52,15 @@
                 <td>Megjegyzés</td>
                 <td>
                     <label for="comment"></label>
-                    <input type="text" name="comment" id="comment"
+                    <input type="text" name="comment" id="comment" class="form-control"
                            value="<%= (typeof event === 'undefined') ? '' : event.comment %>">
                 </td>
             </tr>
         </table>
-        <button style="float: right">Mentés</button>
+        <button style="float: right" class="btn btn-success">Mentés</button>
     </form>
     <a href="/events">
-        <button style="float: right">Mégsem</button>
+        <button style="float: right" class="btn btn-outline-secondary">Mégsem</button>
     </a>
 </main>
 <%- include('footer') %>

@@ -1,18 +1,17 @@
 <%- include('header') %>
-<main style="width: fit-content">
-    <h1>
+<main class="container mt-3" style="width: fit-content">
+    <h1 class="h1 text-primary">
         Fotós
         <% if (typeof photographer === 'undefined') { %> felvétele
         <% } else { %> szerkesztése
         <% } %>
     </h1>
     <form method="POST">
-        <table>
+        <table class="table">
             <tr>
                 <td>Név</td>
                 <td>
-                    <label for="name"></label>
-                    <input name="name" id="name" type="text" minlength="2" required
+                    <input name="name" id="name" type="text" minlength="2" required class="form-control mt-0"
                            value="<%= (typeof photographer === 'undefined') ? '' : photographer.name %>">
                 </td>
             </tr>
@@ -20,7 +19,7 @@
                 <td>Tagsági szint</td>
                 <td>
                     <label>
-                        <input type="radio" name="membershipLevel" required value="Tag"
+                        <input type="radio" name="membershipLevel" required value="Tag" class="form-check-input"
                         <% if (typeof photographer !== 'undefined' && photographer.membershipLevel === "Tag") { %>
                                checked
                                 <% } %>
@@ -28,7 +27,7 @@
                         Tag
                     </label>
                     <label>
-                        <input type="radio" name="membershipLevel" value="Újonc"
+                        <input type="radio" name="membershipLevel" value="Újonc" class="form-check-input"
                         <% if (typeof photographer !== 'undefined' && photographer.membershipLevel === "Újonc") { %>
                                checked
                                 <% } %>
@@ -38,11 +37,16 @@
                 </td>
             </tr>
         </table>
-        <input type="submit" style="float: right" value="Mentés"/>
-
+        <div class="container">
+            <div class="row justify-content-end">
+                <div class="col-3">
+                    <a href="/photographers" class="btn btn-outline-secondary">Mégsem</a>
+                </div>
+                <div class="col-3">
+                    <input type="submit" value="Mentés" class="btn btn-success justify-self-end"/>
+                </div>
+            </div>
+        </div>
     </form>
-    <a href="/photographers">
-        <button style="float: right">Mégsem</button>
-    </a>
 </main>
 <%- include('footer') %>
