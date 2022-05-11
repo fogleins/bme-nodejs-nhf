@@ -23,7 +23,7 @@ describe('applyToEvent middleware ', function () {
                     }
                 },
                 redirect: target => {
-                    expect(target).to.be.eq("/event/details/1")
+                    expect(target).to.be.eql("/event/details/1")
                     done()
                 }
             },
@@ -51,11 +51,11 @@ describe('applyToEvent middleware ', function () {
                     }
                 },
                 redirect: target => {
-                    expect(target).to.be.eq("/event/details/1")
+                    expect(target).to.be.eql("/event/details/1")
                 }
             },
             error => {
-                expect(error).to.be.eq("some error")
+                expect(error).to.be.eql("some error")
                 done()
             })
     })
@@ -82,12 +82,12 @@ describe('applyToEvent middleware ', function () {
                     }
                 },
                 redirect: target => {
-                    expect(target).to.be.eq("/event/details/1")
+                    expect(target).to.be.eql("/event/details/1")
                     done()
                 }
             },
             error => {
-                expect(error).to.be.eq("already applied error")
+                expect(error).to.be.eql("already applied error")
                 done()
             })
     })
@@ -111,11 +111,11 @@ describe('applyToEvent middleware ', function () {
                     }
                 },
                 redirect: target => {
-                    expect(target).to.be.eq("/event/details/1")
+                    expect(target).to.be.eql("/event/details/1")
                 }
             },
             error => {
-                expect(error).to.be.eq(undefined)
+                expect(error).to.be.eql(undefined)
                 done()
             })
     })
@@ -134,11 +134,11 @@ describe('applyToEvent middleware ', function () {
                     // event is undefined
                 },
                 redirect: target => {
-                    expect(target).to.be.eq("/event/details/1")
+                    expect(target).to.be.eql("/event/details/1")
                 }
             },
             error => {
-                expect(error).to.be.eq(undefined)
+                expect(error).to.be.eql(undefined)
                 done()
             })
     })
