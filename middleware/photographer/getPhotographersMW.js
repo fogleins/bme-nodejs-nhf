@@ -9,7 +9,7 @@ module.exports = function (objectrepository) {
     return function (req, res, next) {
         PhotographerModel.find({}, (err, photographers) => {
             if (err) {
-                return next();
+                return next(err);
             }
 
             res.locals.photographers = photographers;

@@ -16,7 +16,7 @@ module.exports = function (objectrepository) {
             {$pull: {photographersApplied: res.locals.photographer.id}},
             (error) => {
                 if (error) {
-                    return next();
+                    return next(error);
                 }
             }
         );

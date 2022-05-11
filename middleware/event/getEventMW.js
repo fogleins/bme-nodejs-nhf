@@ -9,7 +9,7 @@ module.exports = function (objectrepository) {
     return function (req, res, next) {
         EventModel.findOne({_id: req.params.eventid}, (error, event) => {
             if (error || !event) {
-                return next();
+                return next(error);
             }
 
             res.locals.event = event;
